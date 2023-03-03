@@ -1,0 +1,22 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+  name: server-go
+  labels:
+    app: server-go
+spec:
+  selector:
+    matchLabels:
+      app: server-go
+  replicas: 3
+  template:
+    metadata:
+     labels:
+      app: server-go
+    spec:
+      containers:
+      - name: server-go
+        image: jbbatista/hello-go:v4
+        envFrom:
+           - secretRef:
+               name: server-go-secret

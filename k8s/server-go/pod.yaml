@@ -1,0 +1,10 @@
+apiVersion: v1
+kind: Pod
+metadata:
+  name: server-go
+  labels:
+    app: server-go
+spec:
+  containers:
+  - name: server-go
+    image: jbbatista/hello-go:v2
